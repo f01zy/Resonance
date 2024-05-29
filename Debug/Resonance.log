@@ -1,0 +1,4 @@
+﻿  Resonance.cpp
+D:\Programming\C++\Resonance\Resonance.cpp(37,32): warning C4018: >: несоответствие типов со знаком и без знака
+D:\Programming\C++\Resonance\Resonance.cpp(47,23): warning C4018: <: несоответствие типов со знаком и без знака
+  Resonance.vcxproj -> D:\Programming\C++\Resonance\Debug\Resonance.exe
