@@ -33,6 +33,12 @@
     <ClCompile Include="scene.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="path.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="textarea.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="globals.h">
@@ -51,6 +57,15 @@
       <Filter>Исходные файлы</Filter>
     </ClInclude>
     <ClInclude Include="scene.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="path.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="curses.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="textarea.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>

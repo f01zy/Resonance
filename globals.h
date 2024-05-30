@@ -1,3 +1,5 @@
+#pragma once
+
 enum class positionsHorizontal { LEFT, CENTERX, RIGHT };
 enum class positionsVertical { TOP, CENTERY, BOTTOM };
 

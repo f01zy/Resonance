@@ -1,1 +1,1 @@
-path: D:\Programming\Resonance
+path: D:\Programming\C++\Resonance\Debug

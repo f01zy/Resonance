@@ -1,4 +1,7 @@
-﻿  Resonance.cpp
-D:\Programming\C++\Resonance\Resonance.cpp(40,32): warning C4018: >: несоответствие типов со знаком и без знака
-D:\Programming\C++\Resonance\Resonance.cpp(50,23): warning C4018: <: несоответствие типов со знаком и без знака
+﻿  scene.cpp
+D:\Programming\C++\Resonance\scene.cpp(1,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+D:\Programming\C++\Resonance\scene.cpp(8,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+D:\Programming\C++\Resonance\scene.cpp(21,9): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+  textarea.cpp
+  Создание кода...
   Resonance.vcxproj -> D:\Programming\C++\Resonance\Debug\Resonance.exe
