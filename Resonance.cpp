@@ -1,4 +1,6 @@
-﻿#include <iostream>
+﻿#define _CRT_SECURE_NO_WARNINGS
+
+#include <iostream>
 #include <fstream>
 #include <vector>
 #include <cstdlib>
@@ -8,6 +10,7 @@
 #include "select.h"
 #include "input.h"
 #include "logs.h"
+#include "scene.h"
 #include <curses.h>
 
 int main()
@@ -76,13 +79,38 @@ int main()
         int width = 40;
         int heigth = 3;
         int maxLength = 10;
-        char* text = new char[maxLength + 2];
-        memset(text, 0, maxLength + 2);
+        char* vaultName = new char[maxLength + 2];
+        memset(vaultName, 0, maxLength + 2);
         vector<int> position = calculatePosition(positionsHorizontal::CENTERX, positionsVertical::CENTERY, width, heigth);
-        inputField(position, maxLength, 40, 3, "Enter a vault name: ", text);
-        if (!filesystem::exists("settings.txt")) {
-            int pathLength = 100;
-            char* path = new char[pathLength];
+        int pathLength = 100;
+        char* path = new char[pathLength];
+        string pathToVault;
+        do
+        {
+            inputField(position, maxLength, 40, 3, "Enter a vault name: ", vaultName);
+            if (filesystem::exists("rules.txt"))
+            {
+                std::ifstream file("rules.txt");
+                string line;
+                string path;
+                while (getline(file, line)) {
+                    if (line.find("path:") != std::string::npos) {
+                        path = line.substr(line.find(":") + 1);
+                        path.erase(0, path.find_first_not_of(" \t"));
+                        break;
+                    }
+                }
+                pathToVault = path + "/" + string(vaultName);
+                if (filesystem::exists(pathToVault))
+                {
+                    errorLog("A repository with this name already exists");
+                    continue;
+                }
+                break;
+            }
+            break;
+        } while (1);
+        if (!filesystem::exists("rules.txt")) {
             memset(path, 0, pathLength);
             do
             {
@@ -93,6 +121,12 @@ int main()
                 }
                 else
                 {
+                    pathToVault = string(path) + "\\" + vaultName;
+                    if (filesystem::exists(pathToVault))
+                    {
+                        errorLog("A repository with this name already exists");
+                        continue;
+                    }
                     break;
                 }
             } while (1);
@@ -102,6 +136,8 @@ int main()
                 file << "path: " << path << endl;
             }
         }
+        filesystem::create_directory(pathToVault);
+        loadScene(vaultName);
     }
 
     if (option == "Exit")
@@ -113,6 +149,11 @@ int main()
     if (option == "Github")
     {
         system(("start " + string(github)).c_str());
+    }
+
+    if (option == "Log in the vault")
+    {
+        loadScene("");
     }
 
     exit(0);

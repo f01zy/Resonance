@@ -147,6 +147,7 @@
     <ClCompile Include="logs.cpp" />
     <ClCompile Include="position.cpp" />
     <ClCompile Include="Resonance.cpp" />
+    <ClCompile Include="scene.cpp" />
     <ClCompile Include="select.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +155,7 @@
     <ClInclude Include="input.h" />
     <ClInclude Include="logs.h" />
     <ClInclude Include="position.h" />
+    <ClInclude Include="scene.h" />
     <ClInclude Include="select.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
