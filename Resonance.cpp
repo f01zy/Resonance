@@ -22,9 +22,14 @@ int main()
 	curs_set(0);
 	keypad(stdscr, TRUE);
 	noecho();
-	start_color();
-	init_pair(1, COLOR_RED, COLOR_BLACK);
 	getmaxyx(stdscr, maxy, maxx);
+	start_color();
+	if (!has_colors() || start_color() == ERR || !can_change_color()) {
+		printw("Цвета не поддерживаются на этом терминале\n");
+		endwin();
+		return 1;
+	}
+	init_pair(1, COLOR_RED, COLOR_BLACK);
 
 	const char* options[] = {
 		"Log in the vault",
