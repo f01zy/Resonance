@@ -1,4 +1,0 @@
-﻿  scene.cpp
-D:\Programming\C++\Resonance\scene.cpp(1,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-D:\Programming\C++\Resonance\scene.cpp(29,9): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
-  Resonance.vcxproj -> D:\Programming\C++\Resonance\Debug\Resonance.exe
