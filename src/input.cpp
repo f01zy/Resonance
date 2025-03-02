@@ -21,7 +21,7 @@ void inputField(vector<int> position, int maxLength, int width, int heigth,
     if (ch == 10) {
       delwin(win);
       break;
-    } else if (ch == 8 && i > 0) {
+    } else if (ch == KEY_BACKSPACE && i > 0) {
       mvwaddch(win, 1, i + strlen(message), ' ');
       text[i] = ' ';
       i--;

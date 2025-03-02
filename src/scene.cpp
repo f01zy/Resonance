@@ -3,12 +3,12 @@
 #include <fstream>
 #include <vector>
 
-#include "globals.h"
-#include "input.h"
-#include "path.h"
-#include "position.h"
-#include "select.h"
-#include "textarea.h"
+#include "../include/globals.h"
+#include "../include/input.h"
+#include "../include/path.h"
+#include "../include/position.h"
+#include "../include/select.h"
+#include "../include/textarea.h"
 #include <ncurses.h>
 
 using namespace std;

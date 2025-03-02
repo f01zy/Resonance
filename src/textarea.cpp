@@ -1,9 +1,7 @@
 #include <fstream>
 #include <iostream>
-#include <string>
-
-#include "globals.h"
 #include <ncurses.h>
+#include <string>
 
 using namespace std;
 
@@ -17,7 +15,7 @@ void textarea(WINDOW *win, string path) {
   if (fileRead.is_open()) {
     string line;
     while (getline(fileRead, line)) {
-      inputText += line += "\n";
+      inputText += line + "\n";
     }
     fileRead.close();
   }
@@ -28,26 +26,36 @@ void textarea(WINDOW *win, string path) {
   bool done = false;
   int ch;
 
-  ofstream fileWrite(path);
   while (!done) {
     ch = wgetch(win);
     switch (ch) {
-    case 27:
-      if (fileWrite.is_open()) {
-        fileWrite << inputText << endl;
-      }
-      return;
+    case 27: // ESC
+      done = true;
+      break;
     case 8:
-      if (!inputText.empty())
+    case 127:
+      if (!inputText.empty()) {
         inputText.pop_back();
+      }
+      break;
+    case 10:
+      inputText += '\n';
       break;
     default:
-      inputText += ch;
+      if (isprint(ch)) {
+        inputText += static_cast<char>(ch);
+      }
       break;
     }
+
     wclear(win);
-    wrefresh(win);
     mvwprintw(win, 1, 0, inputText.c_str());
     wrefresh(win);
   }
-};
+
+  ofstream fileWrite(path);
+  if (fileWrite.is_open()) {
+    fileWrite << inputText;
+    fileWrite.close();
+  }
+}

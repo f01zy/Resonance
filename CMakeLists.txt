@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(Resonance)
-add_executable(start Resonance.cpp input.cpp logs.cpp path.cpp position.cpp scene.cpp select.cpp textarea.cpp)
+set(SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
+file(GLOB SRC_FILES "${SOURCE_DIR}/*.cpp")
+add_executable(start ${SRC_FILES})
 find_package(Curses REQUIRED)
 target_link_libraries(start ${CURSES_LIBRARIES})

@@ -7,12 +7,12 @@
 #include <iostream>
 #include <vector>
 
-#include "input.h"
-#include "logs.h"
-#include "path.h"
-#include "position.h"
-#include "scene.h"
-#include "select.h"
+#include "../include/input.h"
+#include "../include/logs.h"
+#include "../include/path.h"
+#include "../include/position.h"
+#include "../include/scene.h"
+#include "../include/select.h"
 #include <ncurses.h>
 
 int main() {
@@ -137,7 +137,7 @@ int main() {
     }
 
     if (option == "Github") {
-      system(("start " + string(github)).c_str());
+      system(("xdg-open " + string(github) + " > /dev/null 2>&1").c_str());
     }
 
     if (option == "Log in the vault") {
